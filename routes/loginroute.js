@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 router.get('/login-form',(req,res) => {
-    res.send('Success');
+    res.render('login');
 });
 
 module.exports = router
