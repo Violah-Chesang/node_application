@@ -7,4 +7,4 @@ app.set('view engine', 'ejs')
 
 app.use(router);
 
-app.listen(5000);
+app.listen(6400, () => console.log('Sever has started!'));
