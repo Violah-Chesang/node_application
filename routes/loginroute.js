@@ -17,6 +17,23 @@ router.get('/search',(req,res) => {
    }
 });
 
+//Have a GET endpoint /filter which accepts two route parameters, id and price in that order. Validate that 
+//price must be a number. And id must be a string or a number but must be 2 or more characters. If criteria is 
+//not met, respond with "Invalid data"
+
+router.get('/filter/:id/:price',(req,res) => {
+    //change price type
+    let price = parseInt(req.params.price);
+    let id = req.params.id;
+
+    if(!(typeof price === 'number' && id.length === 2)) {
+        res.send('Invalid data');
+    }else{
+        res.send('Everything seem fine!')
+   
+    }
+ });
+
 router.get('/login-form',(req,res) => {
     res.render('login');
 });
