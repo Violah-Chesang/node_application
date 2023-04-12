@@ -3,8 +3,19 @@ const express = require('express');
 const router = express.Router();
 
 const family = ['Paul', 'Violah', 'Chelly', 'Israel', 'Ethan'];
-const allMembers = family.forEach(familyMember => {
-    return(familyMember);        
+
+const familyList = family.forEach(familyMember => {
+    console.log(familyMember)
+});
+
+ //render an ejs template
+ router.get('/login-form',(req,res) => {
+    res.render('login');
+});
+
+//provide feedback on login
+router.post('/login-form',(req,res) => {
+    res.send('Login Successful');
 });
 
 router.get('/search',(req,res) => {
@@ -33,14 +44,5 @@ router.get('/filter/:id/:price',(req,res) => {
    
     }
  });
-
-router.get('/login-form',(req,res) => {
-    res.render('login');
-});
-
-router.post('/login-form',(req,res) => {
-
-    res.send({names:allMembers});
-});
-
-module.exports = router
+ 
+ module.exports = router
